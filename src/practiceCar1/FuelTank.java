@@ -1,28 +1,35 @@
 package practiceCar1;
 
 public class FuelTank extends CarPart {
-	private double regularPrice;
+	private double price;
 
 	// private double mediumPrice;
 	private int gallon;
-	private int fuelLevel;
+	//private int fuelLevel;
 
 	private String FuelPrice;
 
 	public static final int FUEL_LEVEL_FULL = 10;
+	private boolean isTankEmpty=false;
+
+	private int fuelLevel;
 
 	public FuelTank() {
 		super();
 		this.condition = 0;
 		this.partDescription = "Gas Tank";
 		this.fuelLevel = 0;
+		this.isTankEmpty=false;
 
 	}
 
 	// constructor
-	public FuelTank(int gallon, double regularPrice, int condition) {
+	public FuelTank(int gallon, double price,
+			int condition) {
 
 		/*
+		 * size,
+				partDescription1, tireCondition);
 		 * if(numberOfCylinders != 4 || numberOfCylinders !=6) {
 		 * System.out.println("Engine value is wrong"); }
 		 */
@@ -33,16 +40,16 @@ public class FuelTank extends CarPart {
 		this.condition = condition;
 
 		this.partDescription = "Gas Tank";
-		this.setRegularPrice(regularPrice);
+		this.setPrice(price);
 
 	}
 
-	public double getRegularPrice() {
-		return regularPrice;
+	public double getPrice() {
+		return price;
 	}
 
-	public void setRegularPrice(double regularPrice) {
-		this.regularPrice = regularPrice;
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 	public int getGallon() {
@@ -53,39 +60,58 @@ public class FuelTank extends CarPart {
 		this.gallon = gallon;
 	}
 
-	public void FuelPrice(int gallon) {
+	public void price(int gallon) {
 		if (gallon <= 10) {
-			regularPrice = 2.50;
+			price = 2.50;
 
-			System.out.println(" the price is " + regularPrice + " " + gallon);
+			System.out.println(" the price is " +
+			price + " " + gallon);
 		} else {
-			regularPrice = 3.00;
-			System.out.println(" the price is " + regularPrice + " " + gallon);
+			price = 3.00;
+			System.out.println(" the price is " +
+			price + " " + gallon);
 		}
 
 	}
 
-	public String FuelPrice() {
-		return FuelPrice;
+	public double price() {
+		return price;
 		// return FuelPrice();
 	}
+	public boolean isTankEmpty() {
+		return isTankEmpty;
+	}
 
+	public void setisTankEmpty(boolean isTankEmpty) {
+		this.isTankEmpty = isTankEmpty;
+	}
 	public void function() {
 		if (condition == 100) {
 			System.out.println("Your " + this.partDescription + " is good");
 			System.out.println("Your " + this.partDescription + " is on fair condition, " + "you got " + gallon
-					+ " gallons at a price of " + regularPrice + " per gallon");
+					+ " gallons at a price of " 
+					+ price + " per gallon");
 		} else {
 			if (condition == 0) {
 				System.out.println("Your " + this.partDescription + " is bad");
 				System.out.println("Your " + this.partDescription + " is on fair condition, " + "you got " + gallon
-						+ " gallons at a price of " + regularPrice + " per gallon");
+						+ " gallons at a price of "
+						+ price + " per gallon");
 			} else {
 				System.out.println("Your " + this.partDescription + " is on fair condition, " + "you got " + gallon
-						+ " gallons at a price of " + regularPrice + " per gallon");
+						+ " gallons at a price of " +
+						price + " per gallon");
 
 			}
 		}
 
+	}
+
+	public int getFuelLevel() {
+		return fuelLevel;
+	}
+
+	public void setFuelLevel(int fuelLevel) {
+		this.fuelLevel = fuelLevel;
 	}
 }

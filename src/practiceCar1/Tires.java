@@ -15,7 +15,8 @@ public class Tires extends CarPart {
 	}
 
 //constructor
-	public Tires(int size, String partDescription, int condition) {
+	public Tires(int size, String partDescription,
+			int condition) {
 		this.condition = condition;
 		// this.brandName=brandName;
 		this.partDescription = partDescription;
