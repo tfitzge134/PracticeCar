@@ -27,12 +27,7 @@ public class FuelTank extends CarPart {
 	public FuelTank(int gallon, double price,
 			int condition) {
 
-		/*
-		 * size,
-				partDescription1, tireCondition);
-		 * if(numberOfCylinders != 4 || numberOfCylinders !=6) {
-		 * System.out.println("Engine value is wrong"); }
-		 */
+	
 		this.gallon = gallon;
 
 		// this.Cylinders =numberOfCylinders;
@@ -60,19 +55,6 @@ public class FuelTank extends CarPart {
 		this.gallon = gallon;
 	}
 
-	public void price(int gallon) {
-		if (gallon <= 10) {
-			price = 2.50;
-
-			System.out.println(" the price is " +
-			price + " " + gallon);
-		} else {
-			price = 3.00;
-			System.out.println(" the price is " +
-			price + " " + gallon);
-		}
-
-	}
 
 	public double price() {
 		return price;
@@ -86,21 +68,33 @@ public class FuelTank extends CarPart {
 		this.isTankEmpty = isTankEmpty;
 	}
 	public void function() {
-		if (condition == 100) {
-			System.out.println("Your " + this.partDescription + " is good");
-			System.out.println("Your " + this.partDescription + " is on fair condition, " + "you got " + gallon
+		double totalPrice =price * gallon;
+		String status = "The tanks is empty " 
+				+ (isTankEmpty ? "empty" : "NOT empty");
+		if (condition <= 100 & condition >70) {
+			System.out.println("Your " + this.partDescription + 
+					" is in excellent condition" + status);
+			
+			System.out.println(
+					 "you got " + gallon
 					+ " gallons at a price of " 
-					+ price + " per gallon");
+					+ price + " per gallon" + " total price is " 
+					+ totalPrice);
 		} else {
-			if (condition == 0) {
-				System.out.println("Your " + this.partDescription + " is bad");
-				System.out.println("Your " + this.partDescription + " is on fair condition, " + "you got " + gallon
+			if (condition >= 0 & condition <=30) {
+				System.out.println("Your " + 
+			this.partDescription +
+						" is bad");
+				System.out.println(
+						  "you got " + gallon
 						+ " gallons at a price of "
-						+ price + " per gallon");
+						+ price + " per gallon"+ " total price is " 
+						+ totalPrice);
 			} else {
-				System.out.println("Your " + this.partDescription + " is on fair condition, " + "you got " + gallon
+				System.out.println("Your " + this.partDescription + " is on bad condition, " + "you got " + gallon
 						+ " gallons at a price of " +
-						price + " per gallon");
+						price + " per gallon" + " total price is " 
+						+ totalPrice);
 
 			}
 		}
@@ -115,3 +109,5 @@ public class FuelTank extends CarPart {
 		this.fuelLevel = fuelLevel;
 	}
 }
+
+ 

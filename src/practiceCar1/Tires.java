@@ -7,7 +7,7 @@ public class Tires extends CarPart {
 
 //method
 	public Tires() {
-		// this.condition = 36;
+		
 		this.partDescription = "Tires";
 		this.levelsOfWear = 0;
 		// this.isflat();
@@ -18,7 +18,6 @@ public class Tires extends CarPart {
 	public Tires(int size, String partDescription,
 			int condition) {
 		this.condition = condition;
-		// this.brandName=brandName;
 		this.partDescription = partDescription;
 		this.size = size;
 
@@ -45,16 +44,19 @@ public class Tires extends CarPart {
 	}
 
 	public void function() {
-		if (condition == 100) {
-			System.out.println("Your " + this.partDescription + " tires are good");
+		if (condition >=60 & condition <=100) {
+			System.out.println("Your " + this.partDescription +
+					" are in excellent condition");
 			printSize();
 
 		} else {
-			if (condition == 0) {
-				System.out.println("Your " + this.partDescription + " tires are bad");
+			if (condition >=0 & condition <30) {
+				System.out.println("Your " + this.partDescription
+						+ "  are bad");
 				printSize();
 			} else {
-				System.out.println("Your " + this.partDescription + " tires are fair");
+				System.out.println("Your " + 
+			this.partDescription + "  are fair");
 				printSize();
 			}
 		}

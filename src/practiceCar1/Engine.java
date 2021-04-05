@@ -39,12 +39,14 @@ public class Engine extends CarPart {
 	// print out the function with messages
 	public void function() {
 		String status = "The engine is " + (isRunning ? "Running" : "NOT Running");
-		if (condition == 100) {
-			System.out.println("Your " + this.partDescription + " is good. " + status);
+		if (condition <= 100 & condition>70) {
+			System.out.println("Your " + this.partDescription 
+					+ " is excellent condition. " + status);
 			printCylinders();
 		} else {
-			if (condition == 0) {
-				System.out.println("Your " + this.partDescription + " is bad." + status);
+			if (condition >= 0 & condition <=30) {
+				System.out.println("Your " + 
+			this.partDescription + " is bad." + status);
 				printCylinders();
 			} else {
 				System.out.println("Your " + this.partDescription + " is fair." + status);

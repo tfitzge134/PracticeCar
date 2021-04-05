@@ -10,7 +10,8 @@ public class Wheel extends CarPart{
 	}
 	
 //constructor
-	public Wheel(double turningDegrees, int condition) {
+	public Wheel(double turningDegrees,
+			int condition) {
 	
 		this.turningDegrees = turningDegrees;	
 		
@@ -20,18 +21,21 @@ public class Wheel extends CarPart{
 		
 	}
 	public void printTurningDegrees() {
-		System.out.println("you are turning at a degree of  " + turningDegrees);
+		System.out.println("you are turning at a degree of  "
+	+ turningDegrees);
 	}
 	
 	//print out the function  with messages
 	public void function() {
-		if (condition ==100) {
-			System.out.println("Your "+ this.partDescription  + " is good");
+		if (condition >=60 & condition<=100) {
+			System.out.println("Your "+ this.partDescription  + 
+					" is in excellent condition");
 			printTurningDegrees();
 		}
 		else {
-			if (condition ==0 ) {
-				System.out.println("Your "+ this.partDescription + " is bad");
+			if (condition >=0 & condition <30  ) {
+				System.out.println("Your "+ this.partDescription +
+						" is bad");
 				printTurningDegrees();
 			}
 			else {

@@ -13,7 +13,7 @@ public class Similator {
 		String line;
 		int numberOfCylinders = 0;
 		try {
-			System.out.println("Enter numberOfCylinders: ");
+			System.out.println("Enter number of Cylinders: ");
 			line = scan.nextLine();
 			numberOfCylinders = Integer.parseInt(line);
 		} catch (NumberFormatException ex) {
@@ -23,7 +23,8 @@ public class Similator {
 
 		int condition = 0;
 		try {
-			System.out.println("Enter condition: ");
+			System.out.println("Enter condition number "
+					+ "from 1 to 100: ");
 			line = scan.nextLine();
 			condition = Integer.parseInt(line);
 		} catch (NumberFormatException ex) {
@@ -50,16 +51,16 @@ public class Similator {
 		}
 
 		String partDescription = null;
-		System.out.println("Enter part Description: ");
+		System.out.println("Enter tires part Description: ");
 		partDescription = scan.nextLine();
 
 		int tireCondition = 0;
-		System.out.println("Enter tire Condition: ");
+		System.out.println("Enter tires Condition number from 1 to 100: ");
 		line = scan.nextLine();
 		try {
 			tireCondition = Integer.parseInt(line);
 		} catch (NumberFormatException ex) {
-			System.out.println("Enter a VALID number for size.");
+			System.out.println("Enter a VALID number for condition.");
 			System.exit(0);
 		}
 
@@ -69,6 +70,7 @@ public class Similator {
 		// Create tires based user input
 		Tires t = new Tires(size, partDescription, tireCondition);
 		t.function();
+		
 		////
 				int gallon = 0;
 				try {
@@ -76,7 +78,8 @@ public class Similator {
 					line = scan.nextLine();
 					gallon = Integer.parseInt(line);
 				} catch (NumberFormatException ex) {
-					System.out.println("Enter a VALID number for numberOfCylinders.");
+					System.out.println("Enter a VALID number"
+							+ " for gallons.");
 					System.exit(0);
 				}
 
@@ -86,16 +89,19 @@ public class Similator {
 					line = scan.nextLine();
 					price = Double.parseDouble(line);
 				} catch (NumberFormatException ex) {
-					System.out.println("Enter a VALID number for condition.");
+					System.out.println("Enter a VALID number"
+							+ " for price.");
 					System.exit(0);
 				}
 				int tankCondition = 0;
-				System.out.println("Enter tank Condition: ");
+				System.out.println("Enter tank Condition number"
+						+ " from 1 to 100: ");
 				line = scan.nextLine();
 				try {
 					tankCondition = Integer.parseInt(line);
 				} catch (NumberFormatException ex) {
-					System.out.println("Enter a VALID number for size.");
+					System.out.println("Enter a VALID number"
+							+ " for tank condition");
 					System.exit(0);
 				}
 				
@@ -104,8 +110,30 @@ public class Similator {
 		f.function();
 		System.out.println("========");
 		//FuelTank f = null;
-		Wheel w = null;
-		//Car c2 = new Car(e, t, f, w);
+		double turningDegree = 0;
+		try {
+			System.out.println("Enter turning Degree in double: ");
+			line = scan.nextLine();
+			turningDegree = Double.parseDouble(line);
+		} catch (NumberFormatException ex) {
+			System.out.println("Enter a VALID number for"
+					+ " turning degree.");
+			System.exit(0);
+		}
+
+		int wheelCondition = 0;
+		System.out.println("Enter Wheel Condition from 1 to 100 ");
+		line = scan.nextLine();
+		try {
+			wheelCondition = Integer.parseInt(line);
+		} catch (NumberFormatException ex) {
+			System.out.println("Enter a VALID number for condition.");
+			System.exit(0);
+		}
+		Wheel w = new Wheel(turningDegree,
+			condition);
+		w.function();
+		
 
 	}
 
