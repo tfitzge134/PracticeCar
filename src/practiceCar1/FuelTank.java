@@ -1,101 +1,72 @@
 package practiceCar1;
 
 public class FuelTank extends CarPart {
-	private double price;
 
 	// private double mediumPrice;
-	private int gallon;
-	//private int fuelLevel;
+	private double gallonAvailable;
+	private int capacity;
 
-	private String FuelPrice;
-
-	public static final int FUEL_LEVEL_FULL = 10;
-	private boolean isTankEmpty=false;
-
+     double mileage;
+     double mpg; //miles per gallon
+    
+     
 	private int fuelLevel;
 
 	public FuelTank() {
 		super();
 		this.condition = 0;
 		this.partDescription = "Gas Tank";
-		this.fuelLevel = 0;
-		this.isTankEmpty=false;
-
 	}
 
 	// constructor
-	public FuelTank(int gallon, double price,
-			int condition) {
+	public FuelTank(int gallonAvailable,
+			int condition, int capacity) {
 
 	
-		this.gallon = gallon;
-
-		// this.Cylinders =numberOfCylinders;
+		this.gallonAvailable = gallonAvailable;
 
 		this.condition = condition;
 
 		this.partDescription = "Gas Tank";
-		this.setPrice(price);
+		this.capacity = capacity;
 
 	}
-
-	public double getPrice() {
-		return price;
+	public double getGallonAvailable() {
+		return gallonAvailable;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	public int getGallon() {
-		return gallon;
-	}
-
-	public void setGallon(int gallon) {
-		this.gallon = gallon;
+	public void setGallonAvailable(double gallonAvailable) {
+		this.gallonAvailable = gallonAvailable;
 	}
 
 
-	public double price() {
-		return price;
-		// return FuelPrice();
-	}
-	public boolean isTankEmpty() {
-		return isTankEmpty;
-	}
-
-	public void setisTankEmpty(boolean isTankEmpty) {
-		this.isTankEmpty = isTankEmpty;
+	public void GasPrice(boolean regularPrice,
+			double mediumPrice, double
+			supperPrice) {
+		
+		 if(regularPrice) {
+			 System.out.println("Good choice regular");
+			 
+		
+			
+		}
+		
 	}
 	public void function() {
-		double totalPrice =price * gallon;
-		String status = "The tanks is empty " 
-				+ (isTankEmpty ? "empty" : "NOT empty");
+		String status = "The tank is " 
+				+ (gallonAvailable == 0? "empty" : "NOT empty");
+		System.out.println(
+				 "You got " + gallonAvailable +
+				 " of capacity: " + capacity);
 		if (condition <= 100 & condition >70) {
 			System.out.println("Your " + this.partDescription + 
 					" is in excellent condition" + status);
 			
-			System.out.println(
-					 "you got " + gallon
-					+ " gallons at a price of " 
-					+ price + " per gallon" + " total price is " 
-					+ totalPrice);
 		} else {
 			if (condition >= 0 & condition <=30) {
 				System.out.println("Your " + 
 			this.partDescription +
 						" is bad");
-				System.out.println(
-						  "you got " + gallon
-						+ " gallons at a price of "
-						+ price + " per gallon"+ " total price is " 
-						+ totalPrice);
-			} else {
-				System.out.println("Your " + this.partDescription + " is on bad condition, " + "you got " + gallon
-						+ " gallons at a price of " +
-						price + " per gallon" + " total price is " 
-						+ totalPrice);
-
 			}
 		}
 
@@ -107,6 +78,16 @@ public class FuelTank extends CarPart {
 
 	public void setFuelLevel(int fuelLevel) {
 		this.fuelLevel = fuelLevel;
+	}
+
+	public void reduceGas(double gallonUsed) {
+//		int x = 10;
+//		x -= 2; 
+		this.gallonAvailable -= gallonUsed;
+	}
+	
+	public double getFillableGallon() {
+		return this.capacity - this.gallonAvailable;
 	}
 }
 

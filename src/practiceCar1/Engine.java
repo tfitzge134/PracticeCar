@@ -56,4 +56,13 @@ public class Engine extends CarPart {
 
 	}
 
+	public double getMilesPerGallon() {
+		if(this.Cylinders == 4) {
+			return 200;
+		}
+		else {
+			return 100;
+		}
+	}
+
 }
